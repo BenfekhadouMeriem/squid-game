@@ -26,7 +26,6 @@
 
     <div id="game-screen" style="display:none;">
         <h2 id="game-title"></h2>
-        <button class="game-button back" onclick="goBack()">Retour au menu</button>
         <div id="game-container">
             <!-- Le contenu du jeu sera injecté ici -->
         </div>
@@ -50,13 +49,6 @@
             } else if (game === 'Tug of War') {
                 window.location.href = 'games/tug-of-war.html';
             }
-        }
-
-        function goBack() {
-            // Revenir au menu principal
-            document.getElementById('menu').style.display = 'block';
-            document.getElementById('game-screen').style.display = 'none';
-            document.getElementById('game-container').innerHTML = ''; // Vider le contenu du jeu
         }
     </script>
 </body>
