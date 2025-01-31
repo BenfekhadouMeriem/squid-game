@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f5a623;
+    color: black;
+}
+
+#game-container {
+    margin-top: 50px;
+}
+
+button {
+    background-color: #d35400;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #a04000;
+}
+
+.back-button {
+    background-color: #3498db;
+}

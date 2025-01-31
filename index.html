@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squid Game - Sélection de Jeux</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Lien vers le fichier CSS -->
+</head>
+<body>
+    <div id="menu">
+        <h1>Bienvenue dans le Squid Game!</h1>
+        <p>Choisissez un jeu pour commencer :</p>
+
+        <div id="game-selection">
+            <button class="game-button" onclick="startGame('Red Light, Green Light')">
+                <img src="images/red-light-icon.png" alt="Red Light"> Red Light, Green Light
+            </button>
+            <!--<button class="game-button" onclick="startGame('Honeycomb Challenge')">
+                <img src="images/honeycomb-icon.png" alt="Honeycomb"> Honeycomb Challenge
+            </button>
+            <button class="game-button" onclick="startGame('Tug of War')">
+                <img src="images/tug-of-war-icon.png" alt="Tug of War"> Tug of War
+            </button>-->
+        </div>
+    </div>
+
+    <div id="game-screen" style="display:none;">
+        <h2 id="game-title"></h2>
+        <button class="game-button back" onclick="goBack()">Retour au menu</button>
+        <div id="game-container">
+            <!-- Le contenu du jeu sera injecté ici -->
+        </div>
+    </div>
+
+    <script src="js/red-light-green-light.js"></script>
+    <script src="js/honeycomb-challenge.js"></script>
+    <script src="js/tug-of-war.js"></script>
+    <script>
+        function startGame(game) {
+            // Cacher le menu et afficher l'écran du jeu
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('game-screen').style.display = 'block';
+            document.getElementById('game-title').innerText = "Vous avez choisi : " + game;
+
+            // Rediriger vers la page du jeu
+            if (game === 'Red Light, Green Light') {
+                window.location.href = 'games/red-light-green-light.html';
+            } else if (game === 'Honeycomb Challenge') {
+                window.location.href = 'games/honeycomb-challenge.html';
+            } else if (game === 'Tug of War') {
+                window.location.href = 'games/tug-of-war.html';
+            }
+        }
+
+        function goBack() {
+            // Revenir au menu principal
+            document.getElementById('menu').style.display = 'block';
+            document.getElementById('game-screen').style.display = 'none';
+            document.getElementById('game-container').innerHTML = ''; // Vider le contenu du jeu
+        }
+    </script>
+</body>
+</html>
+
+

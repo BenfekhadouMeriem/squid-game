@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Light, Green Light</title>
+    <link rel="stylesheet" href="../css/red-light-green-light.css">
+</head>
+<body>
+    <div class="progress-bar-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <div class="player-progress"></div>
+
+    
+    <div class="game-container">
+        <div class="status">🟢 Feu vert</div>
+        <div class="player"><img id="player" src="../images/player1.png" alt="Joueur" style="width: 150px; height: auto;" ></div>
+        <div class="finish-line"></div>
+        <div class="result"></div>
+        <div class="restart-button-container"></div>
+        <div class="centered-button">
+            <button class="start-button">Démarrer le jeu</button>
+        </div>        
+        <audio id="background-music" src="../audio/squid-game.mp3" preload="auto" loop></audio>
+            
+        <!-- Ajoute une section pour afficher les feux d'artifice -->
+        <canvas id="Canvas"></canvas>
+    </div>
+
+
+    <script src="../js/red-light-green-light.js"></script>
+</body>
+</html>

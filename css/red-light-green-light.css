@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('../images/do.png') no-repeat center;
+}
+
+
+
+/* Style pour centrer le bouton */
+.centered-button {
+    position: fixed; /* Utilise 'fixed' pour le positionner par rapport à la fenêtre */
+    top: 50%;        /* Centre verticalement */
+    left: 50%;       /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Déplace l'élément pour le centrer exactement */
+    z-index: 1000;   /* Pour s'assurer que l'élément soit au-dessus des autres éléments */
+}
+
+/* Style pour cacher le bouton après le clic */
+.hidden {
+    display: none;
+}
+
+
+/* Style de la barre de progression */
+.progress-bar-container {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #000000; /* Vert */
+    width: 0%; /* Au début, la barre est vide */
+    transition: width 0.2s ease-in-out;
+}
+
+
+/* Style pour la game-container */
+.game-container {
+    position: relative;
+    overflow: hidden;
+    height: 95vh;
+    width: 100%;
+}
+
+/* Pseudo-élément pour créer un bord en bas */
+.game-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 5px solid #000000; /* Bord en bas */
+    transition: transform 0.3s ease-out; /* Transition fluide pour le mouvement */
+}
+
+
+
+.player {
+    position: absolute;
+    bottom: 30%;
+    left: 0%;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: left 0.1s linear, bottom 0.1s linear;
+}
+
+.finish-line {
+    position: absolute;
+    top: 0;
+    left: 95%;  /* Position initiale invisible (hors de la fenêtre) */
+    width: 10px;
+    height: 100%;
+    background-color: green;
+    /*visibility: hidden; /* Rendre invisible au départ */
+}
+
+
+.status {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.result {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: green;
+}
+
+
+/* Conteneur du bouton de redémarrage */
+.restart-button-container {
+    position: absolute; /* Utilisation de position absolue pour le centrer précisément */
+    top: 50%; /* Centre le conteneur verticalement */
+    left: 50%; /* Centre le conteneur horizontalement */
+    transform: translate(-50%, -50%); /* Décale le conteneur pour qu'il soit parfaitement centré */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Style du bouton de redémarrage */
+button {
+    padding: 15px 30px;
+    background-color: #000000; /* Vert agréable */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Effet au survol du bouton */
+button:hover {
+    background-color: #2d2d2d; /* Changer la couleur de fond */
+    transform: scale(1.1); /* Agrandir légèrement */
+}
+
+/* Effet de clic sur le bouton */
+button:active {
+    background-color: #4b4a4a; /* Plus sombre au clic */
+    transform: scale(1); /* Retirer l'effet d'agrandissement */
+}
+
+/* Style du bouton quand il est désactivé (par exemple pendant le jeu) */
+button:disabled {
+    background-color: #b0b0b0;
+    cursor: not-allowed;
+}
+
+
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
