@@ -297,6 +297,33 @@ document.addEventListener('touchmove', (e) => {
     }
 });
 
+// Gestion des touches du clavier
+document.addEventListener('keydown', (e) => {
+    if (isGameActive && isGreenLight) {
+        let movementSpeed = window.innerWidth / 500;
+        let playerX = player.offsetLeft;
+
+        if (e.key === 'ArrowRight') {
+            playerX += movementSpeed;
+        } else if (e.key === 'ArrowLeft') {
+            playerX -= movementSpeed;
+        }
+
+        if (playerX < 0) {
+            playerX = 0;
+        } else if (playerX > finishPosition) {
+            playerX = finishPosition;
+        }
+
+        player.style.left = `${playerX}px`;
+        lastPosition = player.offsetLeft;
+        updateProgressBar();
+        window.scrollTo({ left: playerX - window.innerWidth / 2, behavior: "smooth" });
+        let progressPercentage = Math.round((playerX / finishPosition) * 100);
+        playerProgress.textContent = `Distance: ${Math.round(playerX)} px | Progression: ${progressPercentage}%`;
+    }
+});
+
 // Démarrer le jeu quand le bouton start est cliqué
 document.querySelector('.start-button').addEventListener('click', function() {
     playBackgroundMusic();
